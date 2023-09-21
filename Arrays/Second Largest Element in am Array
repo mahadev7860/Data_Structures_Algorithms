@@ -1,0 +1,30 @@
+
+
+//User function Template for Java
+
+class Solution {
+    int print2largest(int arr[], int n) {
+        // code here
+        int first = Integer.MIN_VALUE;
+        int second = Integer.MIN_VALUE;
+        for(int i=0;i<arr.length;i++){
+            //if we foung any element greater than second check whether it 
+            //is gretaer than first or less than first
+            //if greater than first means replace first and second values
+            //if less tham first means replace only second
+            //if equal to first no need to change
+            //even if we change there wont be a difference
+            if(arr[i] >= second){
+                if(arr[i] > first){
+                    second = first;
+                    first = arr[i];
+                }else if(arr[i] < first){
+                    second = arr[i];
+                }
+            }
+        }
+        if(second == Integer.MIN_VALUE)
+            return -1;
+        return second;
+    }
+}
